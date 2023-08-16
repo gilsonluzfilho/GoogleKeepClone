@@ -80,3 +80,21 @@ header {
     background-color: #333;
     color: #fff;
 }
+
+/* Notas */
+
+#notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.note {
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #fff;
+    position: relative;
+}
