@@ -56,6 +56,14 @@ function createNote(id, content, fixed) {
     pinIcon.classList.add(...["bi", "bi-pin"]);
     element.appendChild(pinIcon);
 
+    const deleteIcon = document.createElement("i");
+    deleteIcon.classList.add(...["bi", "bi-x-lg"]);
+    element.appendChild(deleteIcon);
+
+    const duplicateIcon = document.createElement("i");
+    duplicateIcon.classList.add(...["bi", "bi-file-earmark-plus"]);
+    element.appendChild(duplicateIcon);
+
     if(fixed) {
         element.classList.add("fixed");
     }
@@ -63,6 +71,10 @@ function createNote(id, content, fixed) {
     // Eventos do elemento
     element.querySelector(".bi-pin").addEventListener("click", () => {
         toggleFixNote(id);
+    });
+
+    element.querySelector(".bi-x-lg").addEventListener("click", () => {
+        deleteNote(id, element);
     });
 
     return element;
@@ -76,6 +88,14 @@ function toggleFixNote(id) {
     saveNotes(notes);
 
     showNotes();
+};
+
+function deleteNote(id, element) {
+    const notes = getNotes().filter((note) => note.ide !== id);
+
+    saveNotes(notes);
+
+    notesContainer.removeChild(element);
 };
 
 // Local storage
