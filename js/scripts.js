@@ -95,7 +95,7 @@ function toggleFixNote(id) {
 };
 
 function deleteNote(id, element) {
-    const notes = getNotes().filter((note) => note.ide !== id);
+    const notes = getNotes().filter((note) => note.id !== id);
 
     saveNotes(notes);
 
